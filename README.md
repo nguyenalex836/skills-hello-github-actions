@@ -14,38 +14,33 @@ _Create a GitHub Action and use it in a workflow._
 </header>
 
 <!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
+  <<< Author notes: Step 2 >>>
+  Start this step by acknowledging the previous step.
+  Define terms and link to docs.github.com.
+  Historic note: The previous course had troubleshooting steps for people not using the GitHub UI.
 -->
 
-## Step 1: Create a workflow file
+## Step 2: Add a job to your workflow file
 
-_Welcome to "Hello GitHub Actions"! :wave:_
+_Nice work! :tada: You added a workflow file!_
 
-**What is _GitHub Actions_?**: GitHub Actions is a flexible way to automate nearly every aspect of your team's software workflow. You can automate testing, continuously deploy, review code, manage issues and pull requests, and much more. The best part, these workflows are stored as code in your repository and easily shared and reused across teams. To learn more, check out these resources:
+Here's what it means:
 
-- The GitHub Actions feature page, see [GitHub Actions](https://github.com/features/actions).
-- The "GitHub Actions" user documentation, see [GitHub Actions](https://docs.github.com/actions).
+- `name: Post welcome comment` gives your workflow a name. This name appears on any pull request or in the Actions tab of your repository.
+- `on: pull_request: types: [opened]` indicates that your workflow will execute anytime a pull request opens in your repository.
+- `permissions` assigns the workflow permissions to operate on the repository
+- `pull-requests: write` gives the workflow permission to write to pull requests. This is needed to create the welcome comment.
 
-**What is a _workflow_?**: A workflow is a configurable automated process that will run one or more jobs. Workflows are defined in special files in the `.github/workflows` directory and they execute based on your chosen event. For this exercise, we'll use a `pull_request` event.
+Next, we need to specify jobs to run.
 
-- To read more about workflows, jobs, and events, see "[Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)".
-- If you want to learn more about the `pull_request` event before using it, see "[pull_request](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)".
+**What is a _job_?**: A job is a set of steps in a workflow that execute on the same runner (a runner is a server that runs your workflows when triggered). Workflows have jobs, and jobs have steps. Steps are executed in order and are dependent on each other. We'll add steps in the next step of this exercise. To read more about jobs, see "[Jobs](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#jobs)".
 
-To get you started, we used actions to go ahead and made a branch and pull request for you.
+In this step of our exercise, we will add a "build" job. We will specify `ubuntu-latest` as the fastest and cheapest job runner available. If you want to read more about why we'll use that runner, see the code explanation for the line `runs-on: ubuntu-latest` in the "[Understanding the workflow file](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#understanding-the-workflow-file)" article.
 
-### :keyboard: Activity: Create a workflow file
+### :keyboard: Activity: Add a job to your workflow file
 
-1. Open a new browser tab, and navigate to this same repository. Then, work on the steps in your second tab while you read the instructions in this tab.
-1. Create a pull request to view all the changes you'll make throughout this course. Click the **Pull Requests** tab, click **New pull request**, set `base: main` and `compare:welcome-workflow`, click **Create pull request**.
-1. Navigate to the **Code** tab.
-1. From the **main** branch dropdown, click on the **welcome-workflow** branch.
-1. Navigate to the `.github/workflows/` folder, then select **Add file** and click on **Create new file**.
-1. In the **Name your file...** field, enter `welcome.yml`.
-1. Add the following content to the `welcome.yml` file:
+1. Open your `welcome.yml` file.
+2. Update the contents of the file to:
    ```yaml
    name: Post welcome comment
    on:
@@ -53,9 +48,14 @@ To get you started, we used actions to go ahead and made a branch and pull reque
        types: [opened]
    permissions:
      pull-requests: write
+   jobs:
+     build:
+       name: Post welcome comment
+       runs-on: ubuntu-latest
    ```
-1. To commit your changes, click **Commit new file**.
-1. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
+3. Click **Start commit** in the top right of the workflow editor.
+4. Type your commit message and commit your changes directly to your branch.
+5. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
 
 <footer>
 
