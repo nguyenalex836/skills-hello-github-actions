@@ -14,23 +14,27 @@ _Create a GitHub Action and use it in a workflow._
 </header>
 
 <!--
-  <<< Author notes: Step 4 >>>
+  <<< Author notes: Step 5 >>>
   Start this step by acknowledging the previous step.
   Define terms and link to docs.github.com.
 -->
 
-## Step 4: Merge your workflow file
+## Step 5: Trigger the workflow
 
-_You're now able to write and run an Actions workflow! :sparkles:_
+_You've now got a fully functioning workflow! :smile:_
 
-Merge your changes so the action will be a part of the `main` branch.
+Your new action will run any time a pull request has been opened.
 
-### :keyboard: Activity: Merge your workflow file
+**Seeing your _action_ in action**: The status of your action is shown in a pull request before you merge, look for **All checks have passed** when you try out the steps below. You can also view them from the **Actions** tab in your repository. From there, you will see all the actions that have run, and you can click on each action to view details and access log files.
 
-1. In your repo, click on the **Pull requests** tab.
-1. Click on the pull request you created in step 1.
-1. Click **Merge pull request**, then click **Confirm merge**.
-1. Optionally, click **Delete branch** to delete your `welcome-workflow` branch.
+![View an action's log](https://user-images.githubusercontent.com/16547949/62388049-4e64e600-b52a-11e9-8bf5-db0c5452360f.png)
+
+### :keyboard: Activity: Trigger the workflow
+
+1. Make a new branch named `test-workflow`.
+1. Commit any change to your branch, such as adding an emoji to your README.md file.
+1. Create the pull request on your branch.
+1. See your action run on your pull request.
 1. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
 
 <footer>
